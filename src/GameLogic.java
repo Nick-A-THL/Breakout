@@ -94,7 +94,7 @@ public class GameLogic extends JPanel
         HashSet<Brick> newBricks = new HashSet<Brick>();
         int xMargin = 1;
         int yMargin = 10;
-        int defaultXPos = Configuration.FIELD_X_SIZE - (colCount * (Configuration.BRICK_X_SIZE + xMargin) + (Configuration.BRICK_Y_SIZE / 2));
+        int defaultXPos = Configuration.FIELD_X_SIZE - (colCount * Configuration.BRICK_X_SIZE + (Configuration.BRICK_Y_SIZE + xMargin) / 2);
         int xPos = defaultXPos;
         int yPos = 20 + Configuration.BALL_Y_SIZE / 2;
 
