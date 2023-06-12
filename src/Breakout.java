@@ -1,4 +1,11 @@
 import javax.swing.*;
+/**
+ * @author Amelie KOLLAN
+ * @author Lena Wiedenhöft
+ * @author Nicklas AMLINGER
+ *
+ * Breakout is the main class that sets up the JFrame and calls the GameLogic
+ */
 
 public class Breakout {
     public static void main(String[] args) {
@@ -13,5 +20,6 @@ public class Breakout {
         frame.add(gameLogic);
         frame.pack();
         frame.setVisible(true);
+        gameLogic.start();
     }
 }

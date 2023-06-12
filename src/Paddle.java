@@ -33,8 +33,34 @@ public class Paddle extends GameObject
         this.xVelocity = velocity;
     }
 
+    /**
+     * Renders the paddle on the Frame
+     * @param graphics needed to render the paddle
+     */
     public void render(Graphics graphics) {
         graphics.setColor(color);
         graphics.fillRect(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
+    }
+
+    /**
+     * Moves the paddle along the x-axis and keeps in within bounds
+     */
+    public void move() {
+        xPosition += xVelocity;
+        int xHalf = xSize / 2;
+        if (xPosition < xHalf) {
+            xPosition = xHalf;
+        } else if (xPosition >= gameLogic.getWidth() - xHalf) {
+            xPosition = gameLogic.getWidth() - xHalf;
+        }
+    }
+
+    /**
+     * Resets the paddles position
+     * @param xPosition the position where to set the paddle along the x-axis
+     */
+    public void resetPosition(int xPosition) {
+        this.xVelocity = 0;
+        this.xPosition = xPosition;
     }
 }

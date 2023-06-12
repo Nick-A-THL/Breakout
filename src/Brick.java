@@ -47,6 +47,10 @@ public class Brick extends GameObject
         this.destroyed = false;
     }
 
+    /**
+     * Renders the brick on the Frame
+     * @param graphics needed to render the brick
+     */
     public void render(Graphics graphics) {
         graphics.setColor(color);
         graphics.fillRect(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);

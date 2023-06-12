@@ -82,6 +82,6 @@ public class GameObject
      * @return new rectangle with the objects size and position
      */
     public java.awt.Rectangle getHitBox() {
-        return new Rectangle(xPosition, yPosition, xSize, ySize);
+        return new Rectangle(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
     }
 }

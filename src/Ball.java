@@ -23,8 +23,8 @@ public class Ball extends GameObject
      */
     public Ball(GameLogic gameLogic, Color color, int xPosition, int yPosition, int xSize, int ySize) {
         super(gameLogic, color, xPosition, yPosition, xSize, ySize);
-        this.xVelocity = 0;
-        this.yVelocity = 0;
+        this.xVelocity = (Math.random() <= 0.5) ? 1 : -1;
+        this.yVelocity = 2;
     }
 
     /**
@@ -54,8 +54,41 @@ public class Ball extends GameObject
         this.yVelocity = yVelocity;
     }
 
+    /**
+     * Renders the ball on the Frame
+     * @param graphics needed to render the ball
+     */
     public void render(Graphics graphics) {
         graphics.setColor(color);
         graphics.fillOval(xPosition - xSize / 2, yPosition - ySize / 2, xSize, ySize);
+    }
+
+    /**
+     * Moves the ball along both axis and handles bouncing off of walls
+     */
+    public void move() {
+        xPosition += xVelocity;
+        if (xPosition < 0) {
+            xVelocity = -xVelocity;
+        } else if (xPosition >= gameLogic.getWidth()) {
+            xVelocity = -xVelocity;
+        }
+        yPosition += yVelocity;
+        if (yPosition < 0) {
+            yVelocity = -yVelocity;
+        } else if (yPosition >= gameLogic.getHeight()) {
+            yVelocity = -yVelocity;
+        }
+    }
+
+    /**
+     * Resets the balls position
+     * @param xPosition the position where to set the ball along the x-axis
+     * @param yPosition the position where to set the ball along the y-axis
+     */
+    public void resetPosition(int xPosition, int yPosition) {
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        setVelocity((Math.random() <= 0.5) ? 1 : -1,2);
     }
 }
